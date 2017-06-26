@@ -1,5 +1,10 @@
 package tree;
 
+/**
+ * 
+ * @author Mahesh Gaonkar
+ * @Date 26-06-2017
+ */
 public class Node {
 	private int value;
 	private Node left;
@@ -37,5 +42,9 @@ public class Node {
 	
 	public Node getRight() {
 		return right;
+	}
+	
+	public boolean isLeaf(){
+		return left == null && right == null;
 	}
 }
