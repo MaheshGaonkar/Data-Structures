@@ -44,7 +44,9 @@ public class DisjointSet<T> {
 		}
 		
 		if(fistNodeParent.rank >= secondNodeParent.rank){
-			fistNodeParent.rank = (fistNodeParent.rank == secondNodeParent.rank) ? fistNodeParent.rank + 1 : fistNodeParent.rank;
+			fistNodeParent.rank = (fistNodeParent.rank == secondNodeParent.rank) 
+				? (fistNodeParent.rank + 1) 
+				: fistNodeParent.rank;
 			secondNodeParent.parent = fistNodeParent;
 		}else{
 			fistNodeParent.parent = secondNodeParent;
