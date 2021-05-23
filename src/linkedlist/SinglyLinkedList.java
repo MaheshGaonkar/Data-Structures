@@ -5,52 +5,52 @@ package linkedlist;
  *
  */
 
-class Node{
-	private int value;
-	private Node next;
-	
-	public Node(){
-		this(0);
-	}
-	
-	public Node(int value){
-		this.value = value;
-		next = null;
-	}
-	
-	public static void swap(Node A, Node B){
-		
-		if((A != null && B != null) || (A.value != B.value)){
-			int value = A.value;
-			A.value = B.value;
-			B.value = value;
-		}	
-	}
-	
-	public static void swap(Node previousNode, Node currentNode, Node nextNode){
-		previousNode.next = nextNode;
-		currentNode.next = nextNode.next;
-		nextNode.next = currentNode;
-	}
-	
-	public int getValue(){
-		return value;
-	}
-	
-	public Node next(){
-		return next;
-	}
-	
-	public void next(Node nextNode){
-		next = nextNode;
-	}
-}
-
 public class SinglyLinkedList {
 	Node head;
 	
 	public SinglyLinkedList(){
 		head = null;
+	}
+	
+	public static class Node {
+		private int value;
+		private Node next;
+		
+		public Node(){
+			this(0);
+		}
+		
+		public Node(int value){
+			this.value = value;
+			next = null;
+		}
+		
+		public static void swap(Node A, Node B){
+			
+			if((A != null && B != null) || (A.value != B.value)){
+				int value = A.value;
+				A.value = B.value;
+				B.value = value;
+			}	
+		}
+		
+		public static void swap(Node previousNode, Node currentNode, Node nextNode){
+			previousNode.next = nextNode;
+			currentNode.next = nextNode.next;
+			nextNode.next = currentNode;
+		}
+		
+		public int getValue(){
+			return value;
+		}
+		
+		public Node next(){
+			return next;
+		}
+		
+		public void next(Node nextNode){
+			next = nextNode;
+		}
 	}
 	
 	public void printList(){

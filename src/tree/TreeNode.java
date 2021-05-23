@@ -5,16 +5,16 @@ package tree;
  * @author Mahesh Gaonkar
  * @Date 26-06-2017
  */
-public class Node {
+public class TreeNode {
 	private int value;
-	private Node left;
-	private Node right;
+	private TreeNode left;
+	private TreeNode right;
 	
-	public Node(){
+	public TreeNode(){
 		this(0);
 	}
 	
-	public Node(int value){
+	public TreeNode(int value){
 		this.setValue(value);
 		setLeft(null);
 		setRight(null);
@@ -28,19 +28,19 @@ public class Node {
 		this.value = value;
 	}
 
-	public Node getLeft() {
+	public TreeNode getLeft() {
 		return left;
 	}
 
-	public void setLeft(Node left) {
+	public void setLeft(TreeNode left) {
 		this.left = left;
 	}
 	
-	public void setRight(Node right) {
+	public void setRight(TreeNode right) {
 		this.right = right;
 	}
 	
-	public Node getRight() {
+	public TreeNode getRight() {
 		return right;
 	}
 	

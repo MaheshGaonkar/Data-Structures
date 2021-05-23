@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import tree.Node;
+import tree.TreeNode;
 import tree.Traversal;
 import tree.TreeOperation;
 
@@ -15,8 +15,8 @@ import tree.TreeOperation;
  * @param <T>
  */
 
-public class BinaryTree extends Node implements Traversal, TreeOperation{
-	private Node root;
+public class BinaryTree extends TreeNode implements Traversal, TreeOperation{
+	private TreeNode root;
 	
 	public BinaryTree() {
 		super();
@@ -26,11 +26,11 @@ public class BinaryTree extends Node implements Traversal, TreeOperation{
 	@Override
 	public ArrayList<Integer> levelOrderTravesal() {
 		if(root == null) return null;
-		Queue<Node> queue = new LinkedList<Node>();
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		queue.add(root);
 		while(!queue.isEmpty()){
-			Node temp = queue.poll();
+			TreeNode temp = queue.poll();
 			result.add(temp.getValue());
 			if(temp.getLeft() != null)
 				queue.add(temp.getLeft());
@@ -48,7 +48,7 @@ public class BinaryTree extends Node implements Traversal, TreeOperation{
 		return result;
 	}
 	
-	private void inOrderTravesal(Node root, ArrayList<Integer> result) {
+	private void inOrderTravesal(TreeNode root, ArrayList<Integer> result) {
 		if(root != null){
 			inOrderTravesal(root.getLeft(), result);
 			result.add(root.getValue());
@@ -64,7 +64,7 @@ public class BinaryTree extends Node implements Traversal, TreeOperation{
 		return result;
 	}
 	
-	private void preOrderTravesal(Node root, ArrayList<Integer> result) {
+	private void preOrderTravesal(TreeNode root, ArrayList<Integer> result) {
 		if(root != null){
 			result.add(root.getValue());
 			inOrderTravesal(root.getLeft(), result);
@@ -80,7 +80,7 @@ public class BinaryTree extends Node implements Traversal, TreeOperation{
 		return result;
 	}
 
-	private void postOrderTravesal(Node root, ArrayList<Integer> result) {
+	private void postOrderTravesal(TreeNode root, ArrayList<Integer> result) {
 		if(root != null){
 			inOrderTravesal(root.getLeft(), result);
 			inOrderTravesal(root.getRight(), result);
@@ -98,15 +98,15 @@ public class BinaryTree extends Node implements Traversal, TreeOperation{
 	public boolean add(int value) {
 		boolean isAdded = false;
 		try{
-			Node newNode = new Node(value);
+			TreeNode newNode = new TreeNode(value);
 			if(root == null){
 				root = newNode;
 				isAdded =  true;
 			}else{
-				Queue<Node> queue = new LinkedList<Node>();
+				Queue<TreeNode> queue = new LinkedList<TreeNode>();
 				queue.add(root);
 				while(!queue.isEmpty()){
-					Node temp = queue.poll();
+					TreeNode temp = queue.poll();
 					if(temp.getLeft() == null){
 						temp.setLeft(newNode);
 						break;
@@ -135,7 +135,7 @@ public class BinaryTree extends Node implements Traversal, TreeOperation{
 		return false;
 	}
 	
-	public Node getRoot(){
+	public TreeNode getRoot(){
 		return root;
 	}
 }
